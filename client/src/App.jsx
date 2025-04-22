@@ -3,6 +3,7 @@ import axios from 'axios';
 import ItemCard from './components/ItemCard';
 import SearchBar from './components/SearchBar';
 import Cart from './components/Cart';
+const API_BASE = import.meta.env.VITE_API_URL;
 
 function App() {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch('/api/items')
+    fetch(`${API_BASE}/api/items`)
       .then((res) => {
         console.log('res.status:', res.status);
         return res.text();
